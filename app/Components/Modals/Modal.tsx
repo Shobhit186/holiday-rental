@@ -81,11 +81,11 @@ const Modal: React.FC<ModalProps> = ({
                      <Button label={actionLabel} disabled={disabled} onClick={handleSubmit} />
                    </div>
                 </div>
-                <div className="flex items-center p-6 rounded-b justify-between relative border-t-[1px]">
+                {footer && (<div className="flex items-center p-6 rounded-b justify-between relative border-t-[1px]">
                   <div className="text-sm text-neutral-500 w-full">
                     {footer}
                   </div>
-                </div>
+                </div>)}
              </div>
            </div>
          </div>
