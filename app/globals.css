@@ -8,4 +8,9 @@ body,
   height: 100%;
 }
 
-
+.leaflet-button,
+.leaflet-control,
+.leaflet-top,
+.leaflet-pane{
+  z-index: 0 !important;
+}
