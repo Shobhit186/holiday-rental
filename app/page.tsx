@@ -1,8 +1,28 @@
+import Container from "./Components/Container";
+import EmptyState from "./Components/EmptyState";
+import ListingCard from "./Components/listings/ListingCard";
+import getCurrentUser from "./actions/getCurrentUsers";
+import getListings from "./actions/getListing";
+export default async function Home() {
+  const listings = await getListings();
+  const currentUser = await getCurrentUser();
 
-export default function Home() {
+  // const isEmpty = true;
+
+  if(listings.length === 0){
+    return(
+      <EmptyState showReset/>
+    )
+  }
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-       <h1>Hello</h1>
-    </div>
+    <Container>
+      <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
+         {listings.map((listing) => {
+          return (
+            <ListingCard key={listing.id} data={listing} currentUser={currentUser} />
+          )
+         })}
+      </div>
+    </Container>
   );
 }
