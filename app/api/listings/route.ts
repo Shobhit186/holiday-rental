@@ -13,6 +13,7 @@ export async function POST(request: Request){
     const {
         title,description,imageSrc,category,roomcount,bathroomcount,guestcount,location,price
     } = body
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Object.keys(body).forEach((value:any) => {
         if(!body[value]){
             NextResponse.error();

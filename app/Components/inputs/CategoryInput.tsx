@@ -9,7 +9,7 @@ interface CategoryinputProps {
     icon: IconType;
     selected: boolean;
 }
-const CategoryInput: React.FC<CategoryinputProps> = ({label,onClick,description,selected,icon:Icon}) => {
+const CategoryInput: React.FC<CategoryinputProps> = ({label,onClick,selected,icon:Icon}) => {
   return (
     <div onClick={() => onClick(label)} className={`rounded-xl border-2 p-4 flex flex-col gap-3 hover:border-black transition cursor-pointer ${selected ? 'border-black':'border-neutral-200' }`}>
         <Icon size={30} />

@@ -24,6 +24,7 @@ const CountryInput: React.FC<CountryinputProps> = ({value,onChange}) => {
          options={getAll()}
          value={value}
          onChange={(value) => onChange(value as CountryInputValue)}
+         // eslint-disable-next-line @typescript-eslint/no-explicit-any
          formatOptionLabel={(option: any) => (
             <div className='flex flex-row items-center gap-3'>
               <div>{option.flag}</div>
