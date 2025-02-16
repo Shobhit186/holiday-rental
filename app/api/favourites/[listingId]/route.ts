@@ -6,13 +6,12 @@ interface IParams {
     listingId?: string;
 }
 
-export async function POST(request: Request, context: { params: IParams }) {
-    const { params } = context;
+export async function POST(request: Request,  { params }: { params: Promise<IParams> }) {
     const currentUser = await getCurrentUser();
     if(!currentUser){
         return NextResponse.error
     }
-    const {listingId} = params;
+    const {listingId} = await params;
     if(!listingId || typeof listingId !== 'string'){
         throw new Error('Invalid ID');
     }
@@ -31,14 +30,13 @@ export async function POST(request: Request, context: { params: IParams }) {
     return NextResponse.json(user);
 }
 
-export async function DELETE(request: Request, context: { params: IParams }) {
-    const { params } = context;
+export async function DELETE(request: Request, { params }: { params: Promise<IParams> }) {
     const currentUser = await getCurrentUser();
 
     if(!currentUser){
         return NextResponse.error
     }
-    const {listingId} = params;
+    const {listingId} = await params;
     if(!listingId || typeof listingId !== 'string'){
         throw new Error('Invalid ID');
     }
