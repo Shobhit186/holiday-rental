@@ -49,6 +49,7 @@ const RentModal = () => {
   console.log(imageSrc,"SRc");
 const Map = useMemo(() => dynamic(() => import('../Map'),{ssr: false}),[location]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const setCustomValues = (id:string, value:any) => {
     setValue(id,value, {
         shouldValidate: true,
@@ -80,6 +81,7 @@ const Map = useMemo(() => dynamic(() => import('../Map'),{ssr: false}),[location
         setSteps(Steps.CATEGORY);
       }
     })
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .catch((error) => {
       toast.error('Something went wrong');
     })

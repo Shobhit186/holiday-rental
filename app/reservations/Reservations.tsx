@@ -39,6 +39,7 @@ interface ReservationsProps {
         toast.success('Reservation cancelled');
         router.refresh();
      })
+     // eslint-disable-next-line @typescript-eslint/no-unused-vars
      .catch((error) => {
         toast.error("Something Went Wrong");
      })

@@ -38,6 +38,7 @@ const useFavourite = ({listingId, currentUser}:IFavourite) => {
         await request();
         router.refresh();
         toast.success('Success');
+     // eslint-disable-next-line @typescript-eslint/no-unused-vars
      } catch (error) {
         toast.error('Something went wrong');
      }

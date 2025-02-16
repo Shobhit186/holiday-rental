@@ -7,7 +7,7 @@ interface FavouritesProps {
     listings: SafeListing[]  | undefined;
     currentUser?: SafeUser | null
 }
-const Favourites: React.FC<FavouritesProps> = ({listings,currentUser}) => {
+const Favourites: React.FC<FavouritesProps> = ({listings}) => {
   return (
     <Container>
     <Heading title='Favourites' subtitle='List of places you have favourited!' />

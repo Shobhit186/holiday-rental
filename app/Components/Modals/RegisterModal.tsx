@@ -31,6 +31,7 @@ const RegisterModal = () => {
                 registerModal.onClose();
                 loginModal.onOpen();
             })
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             .catch((error) => {
                 toast.error('Something went wrong');
             })

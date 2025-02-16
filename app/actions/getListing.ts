@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import prisma from "@/app/libs/prismadb";
 
 export interface IListingsParams {
@@ -13,6 +14,7 @@ export interface IListingsParams {
 export default async function getListings(params: IListingsParams) {
     try {
         const {userId,guestcount,bathroomcount,roomcount,startDate,endDate,locationValue,category} = params;
+        // eslint-disable-next-line prefer-const
         let query:any = {};
 
         if(userId) {

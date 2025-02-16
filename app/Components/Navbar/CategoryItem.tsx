@@ -9,7 +9,7 @@ interface CategoryItemProps {
     icon: IconType
     selected?: boolean
 }
-const CategoryItem:React.FC<CategoryItemProps> = ({label,description,icon:Icon,selected}) => {
+const CategoryItem:React.FC<CategoryItemProps> = ({label,icon:Icon,selected}) => {
   const router = useRouter();
   const params = useSearchParams()
 
@@ -18,6 +18,7 @@ const CategoryItem:React.FC<CategoryItemProps> = ({label,description,icon:Icon,s
       if (params) {
           currentQuery = qs.parse(params.toString());
       }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const updatedQuery: any = {
           ...currentQuery,
           category: label
