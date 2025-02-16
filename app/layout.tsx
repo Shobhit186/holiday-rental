@@ -7,6 +7,7 @@ import RegisterModal from "./Components/Modals/RegisterModal";
 import LoginModal from "./Components/Modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUsers";
 import RentModal from "./Components/Modals/RentModal";
+import SearchModal from "./Components/Modals/SearchModal";
 
 const geistSans = Nunito({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default async function RootLayout({
         className={`${geistSans.className} antialiased`}
       >
         <ToasterProvider />
+        <SearchModal />
         <RentModal />
         <LoginModal />
         <RegisterModal />
