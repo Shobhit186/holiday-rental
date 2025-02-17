@@ -5,10 +5,11 @@ import getCurrentUser from "./actions/getCurrentUsers";
 import getListings, { IListingsParams } from "./actions/getListing";
 
 interface HomeProps {
-  searchParams: IListingsParams
+  searchParams: Promise<IListingsParams>;
 }
 const Home = async({searchParams}: HomeProps) => {
-  const listings = await getListings(searchParams);
+  const params = await searchParams;
+  const listings = await getListings(params);
   const currentUser = await getCurrentUser();
 
   // const isEmpty = true;
