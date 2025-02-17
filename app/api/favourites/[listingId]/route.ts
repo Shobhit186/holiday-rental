@@ -3,17 +3,17 @@ import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUsers";
 
 interface IParams {
-    listingId: string; // Remove '?' to make it required
+    listingId: string; // Ensure it's required
 }
 
-export async function POST(request: Request, context: { params: IParams }) {
+export async function POST(request: Request, { params }: { params: IParams }) {
     const currentUser = await getCurrentUser();
     
     if (!currentUser) {
         return NextResponse.error();
     }
     
-    const { listingId } = context.params; // No need to await
+    const { listingId } = params; // Correct way to extract params
 
     if (!listingId || typeof listingId !== "string") {
         throw new Error("Invalid ID");
@@ -30,14 +30,14 @@ export async function POST(request: Request, context: { params: IParams }) {
     return NextResponse.json(user);
 }
 
-export async function DELETE(request: Request, context: { params: IParams }) {
+export async function DELETE(request: Request, { params }: { params: IParams }) {
     const currentUser = await getCurrentUser();
 
     if (!currentUser) {
         return NextResponse.error();
     }
 
-    const { listingId } = context.params; // No need to await
+    const { listingId } = params; // Correct way to extract params
 
     if (!listingId || typeof listingId !== "string") {
         throw new Error("Invalid ID");
