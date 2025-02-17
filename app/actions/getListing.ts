@@ -65,7 +65,8 @@ export default async function getListings(params: IListingsParams) {
                 createdAt: 'desc'
             }
         });
-        const safeListings = listings.map((listing) => ({
+ // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const safeListings = listings.map((listing:any) => ({
             ...listing,
             createdAt: listing.createdAt.toISOString(),
         }))
