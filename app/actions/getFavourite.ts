@@ -16,7 +16,8 @@ export default async function getFavouriteListings() {
                 },
             },
         });
-        const safeFavourites = favouriteListings.map((listing) => ({
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const safeFavourites = favouriteListings.map((listing:any) => ({
             ...listing,
             createdAt: listing.createdAt.toISOString(),
         }));
