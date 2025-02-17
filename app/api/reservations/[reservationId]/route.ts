@@ -3,6 +3,10 @@ import { NextResponse } from "next/server";
 import getCurrentUser from "@/app/actions/getCurrentUsers";
 import prisma from "@/app/libs/prismadb";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+interface IParams {
+    reservationId?: string;
+}
 
 export async function DELETE(request: Request,  { params }: { params: Promise<{ reservationId: string }> }) {
     const currentUser = await getCurrentUser();
