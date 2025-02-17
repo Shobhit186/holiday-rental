@@ -6,14 +6,14 @@ interface IParams {
     listingId: string; // Ensure it's required
 }
 
-export async function POST(request: Request, { params }: { params: IParams }) {
+export async function POST(request: Request, { params }: { params: Promise<{ listingId: string }> }) {
     const currentUser = await getCurrentUser();
     
     if (!currentUser) {
         return NextResponse.error();
     }
     
-    const { listingId } = params; // Correct way to extract params
+    const listingId = (await params).listingId; // Correct way to extract params
 
     if (!listingId || typeof listingId !== "string") {
         throw new Error("Invalid ID");
