@@ -10,7 +10,6 @@ import { differenceInCalendarDays, eachDayOfInterval } from 'date-fns';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import ListingReservation from '@/app/Components/listings/ListingReservation';
-import { Range } from 'react-date-range';
 
 const initialDateRange = {
   startDate: new Date(),
