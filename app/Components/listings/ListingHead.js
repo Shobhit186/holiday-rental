@@ -1,18 +1,10 @@
 'use client';
 import useCountries from '@/app/hooks/useCountries';
-import { SafeUser } from '@/app/types';
 import React from 'react'
 import Heading from '../Heading';
 import HeartButton from '../HeartButton';
 
-interface ListingHeadProps {
-    title: string;
-    imageSrc: string | null;
-    locationValue: string;
-    id: string;
-    currentUser?: SafeUser | null
-}
-const ListingHead:React.FC<ListingHeadProps> = ({title,imageSrc,locationValue,id,currentUser}) => {
+const ListingHead = ({title,imageSrc,locationValue,id,currentUser}) => {
     const {getByValue} = useCountries();
     const location = getByValue(locationValue);
 

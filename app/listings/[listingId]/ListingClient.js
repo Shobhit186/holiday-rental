@@ -1,6 +1,5 @@
 'use client';
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import { SafeListing, SafeReservation, SafeUser } from '@/app/types'
 import { categories } from '@/app/Components/Navbar/Categories';
 import Container from '@/app/Components/Container';
 import ListingHead from '@/app/Components/listings/ListingHead';
@@ -18,16 +17,12 @@ const initialDateRange = {
   endDate: new Date(),
   key: 'selection'
 };
-interface ListingClientProps {
-    reservation?: SafeReservation[];
-    listing: SafeListing & {user: SafeUser};
-    currentUser?: SafeUser | null;
-}
-const ListingClient: React.FC<ListingClientProps> = ({listing,currentUser,reservation=[]}) => {
+
+const ListingClient = ({listing,currentUser,reservation=[]}) => {
     const loginModal = useLoginModal();
     const router = useRouter();
     const disabledDates = useMemo(() => {
-      let dates: Date[] = [];
+      let dates = [];
       reservation.forEach((reserve) => {
         const range = eachDayOfInterval({
           start: new Date(reserve.startDate),

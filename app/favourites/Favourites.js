@@ -1,13 +1,9 @@
 import React from 'react'
-import { SafeListing, SafeUser } from '../types'
 import Heading from '../Components/Heading';
 import Container from '../Components/Container';
 import ListingCard from '../Components/listings/ListingCard';
-interface FavouritesProps {
-    listings: SafeListing[]  | undefined;
-    currentUser?: SafeUser | null
-}
-const Favourites: React.FC<FavouritesProps> = ({listings}) => {
+
+const Favourites = ({listings}) => {
   return (
     <Container>
     <Heading title='Favourites' subtitle='List of places you have favourited!' />

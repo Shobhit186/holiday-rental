@@ -5,15 +5,12 @@ import { useCallback, useState } from "react";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useregisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
-import { SafeUser } from "@/app/types";
 import { signOut } from "next-auth/react";
 import useRentModal from "@/app/hooks/useRentModal";
 import { useRouter } from "next/navigation";
 
-interface UsermenuProps {
-  currentUser?: SafeUser | null
-}
-const UserMenus: React.FC<UsermenuProps> = ({ currentUser }) => {
+
+const UserMenus = ({ currentUser }) => {
   const router = useRouter();
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();

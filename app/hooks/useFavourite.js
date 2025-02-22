@@ -1,17 +1,12 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import React, { useCallback, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { toast } from "react-hot-toast";
-
-import { SafeUser } from "../types";
 import useLoginModal from "./useLoginModal";
 
-interface IFavourite {
-    listingId: string;
-    currentUser?: SafeUser | null;
-}
 
-const useFavourite = ({listingId, currentUser}:IFavourite) => {
+
+const useFavourite = ({listingId, currentUser}) => {
    const router = useRouter();
    const loginModal = useLoginModal();
 
@@ -20,7 +15,7 @@ const useFavourite = ({listingId, currentUser}:IFavourite) => {
     return list.includes(listingId);
    },[currentUser,listingId]);
 
-   const toggleFavourite = useCallback(async(e:React.MouseEvent<HTMLDivElement>) => {
+   const toggleFavourite = useCallback(async(e) => {
      e.stopPropagation();
      if(!currentUser){
         return loginModal.onOpen();

@@ -4,34 +4,16 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useCallback,useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { SafeReservation, SafeUser } from '../types';
 import Heading from '../Components/Heading';
 import Container from '../Components/Container';
 import ListingCard from '../Components/listings/ListingCard';
 
-interface ReservationsProps {
-    reservations: SafeReservation[];
-    currentUser?: SafeUser | null;
-}
 
-/*************  ✨ Codeium Command ⭐  *************/
-/**
- * Displays a list of reservations with the option to cancel each reservation.
- * 
- * Props:
- * - reservations: An array of reservation objects that contain details about each reservation.
- * - currentUser: The current logged-in user, if available.
- * 
- * The component allows users to view their reservation listings and cancel them if necessary. 
- * When a reservation is cancelled, it makes an API request to delete the reservation and 
- * provides user feedback with a toast message indicating success or failure.
- */
-
-/******  3ebc31a5-9e26-4155-8fc9-b19dd94a2ebb  *******/const Reservations: React.FC<ReservationsProps> = ({reservations, currentUser}) => {
+const Reservations = ({reservations, currentUser}) => {
     const router = useRouter();
   const [deletedId, setDeletedId]= useState('');
 
-  const onCancel = useCallback((id:string) => {
+  const onCancel = useCallback((id) => {
      setDeletedId(id);
 
      axios.delete(`/api/reservations/${id}`)
