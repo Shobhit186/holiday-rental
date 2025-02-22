@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/Components/HeartButton.js", "app/Components/listings/ListingCard.js", "app/Components/listings/ListingHead.js", "app/Components/listings/ListingInfo.js", "app/Components/Navbar/Navbar.js", "app/Components/Navbar/UserMenus.js", "app/favourites/Favourites.js", "app/hooks/useFavourite.js", "app/listings/[listingId]/ListingClient.js", "app/properties/Properties.js", "app/reservations/Reservations.js", "app/trips/Trips.js", "app/favourites/page.js", "app/page.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/Components/HeartButton.js", "app/Components/listings/ListingCard.js", "app/Components/listings/ListingHead.js", "app/Components/listings/ListingInfo.js", "app/Components/Navbar/Navbar.js", "app/Components/Navbar/UserMenus.js", "app/favourites/Favourites.js", "app/hooks/useFavourite.js", "app/listings/[listingId]/ListingClient.js", "app/properties/Properties.js", "app/reservations/Reservations.js", "app/trips/Trips.js", "app/favourites/page.js", "app/page.js", "app/listings/[listingId]/page.js"],
   "exclude": ["node_modules","app/types/index.ts"]
 }

@@ -5,13 +5,10 @@ import React from 'react';
 import ListingClient from './ListingClient';
 import getReservations from '@/app/actions/getReservations';
 
-interface IParams {
-    listingId?: string;
-}
 
 
 
-const ListingPage = async ({params}: {params: Promise<IParams>}) => {
+const ListingPage = async ({params}) => {
   const resolvedParams = await params;
     const listing = await getListingById(resolvedParams);
     const reservations = await getReservations(resolvedParams);
